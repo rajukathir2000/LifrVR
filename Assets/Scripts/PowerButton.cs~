@@ -1,0 +1,12 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PowerButton : MonoBehaviour
+{
+    public VideoPlayer videoPlayer;
+
+    public void TogglePower()
+    {
+        videoPlayer.enabled = !videoPlayer.enabled;
+    }
+}

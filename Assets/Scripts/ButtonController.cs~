@@ -1,0 +1,47 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ButtonController : MonoBehaviour
+{
+    public GameObject[] videoButtons;
+    public GameObject backButton;
+    public VideoPlayer[] videoPlayers;
+    public VideoClip[] videoClips;
+
+    void Start()
+    {
+        // Initially disable all video buttons and back button
+        foreach (GameObject button in videoButtons)
+        {
+            button.SetActive(false);
+        }
+        backButton.SetActive(false);
+    }
+
+    public void ShowVideoButtons()
+    {
+        // Enable all video buttons and back button
+        foreach (GameObject button in videoButtons)
+        {
+            button.SetActive(true);
+        }
+        backButton.SetActive(true);
+    }
+
+    public void PlayVideo(int index)
+    {
+        // Play video corresponding to the index
+        videoPlayers[index].clip = videoClips[index];
+        videoPlayers[index].Play();
+    }
+
+    public void GoBack()
+    {
+        // Disable all video buttons and back button
+        foreach (GameObject button in videoButtons)
+        {
+            button.SetActive(false);
+        }
+        backButton.SetActive(false);
+    }
+}
